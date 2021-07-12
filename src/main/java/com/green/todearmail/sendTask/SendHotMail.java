@@ -58,7 +58,7 @@ public class SendHotMail {
 
         Map<String, Object> dsResultMap = FastJsonConvertUtils.convertJSONToObject(dsResult, Map.class) ;
         Map map = DateUtils.timesBetween(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(START_TIME),new Date());
-        String together = "亲爱的宝贝，此刻我们已经在一起" + map.get("Day") +"天"+ map.get("Hour")+"小时"+map.get("Min")+"分"+map.get("Sec")+"秒";
+        String together = "亲爱的宝贝，平行世界中我们已经在一起" + map.get("Day") +"天"+ map.get("Hour")+"小时"+map.get("Min")+"分"+map.get("Sec")+"秒";
         StringBuffer sb = new StringBuffer();
         sb.append(dsResultMap.get("content")).append("<br>").append(dsResultMap.get("note")).append("<br>").append("今天是");
         sb.append(weatherInfo.get("ymd")).append("\t\t").append(weatherInfo.get("week")).append("\t\t")
@@ -67,7 +67,7 @@ public class SendHotMail {
                 .append(weatherInfo.get("low")).append("\t\t").append(weatherInfo.get("notice")).append("，我爱你").append("<br>");
         sb.append(together).append("<br>");
         sb.append(sweetResult).append("<br>");
-        sb.append("来自爱你的男朋友");
+        sb.append("来自爱你的寻梦人");
         MAIL_TEXT = sb.toString();
         System.out.println(MAIL_TEXT);
         String date = new SimpleDateFormat("yyyyMMdd").format(new Date());
